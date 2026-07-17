@@ -1,0 +1,111 @@
+@import 'tailwindcss';
+
+@source '../**/*.blade.php';
+@source '../**/*.js';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-display: 'Baloo 2', 'Segoe UI', system-ui, sans-serif;
+    --font-sans: 'Nunito', 'Segoe UI', system-ui, sans-serif;
+
+    /* CrunchPop candy palette */
+    --color-berry-50: #fff1f6;
+    --color-berry-100: #ffe0ec;
+    --color-berry-200: #ffc2da;
+    --color-berry-300: #ff94bd;
+    --color-berry-400: #ff5c99;
+    --color-berry-500: #ff2d7e;
+    --color-berry-600: #ed1168;
+    --color-berry-700: #c80953;
+    --color-berry-800: #a50c48;
+
+    --color-grape-50: #f6f2ff;
+    --color-grape-100: #ece2ff;
+    --color-grape-200: #dcc9ff;
+    --color-grape-300: #c3a1ff;
+    --color-grape-400: #a66bff;
+    --color-grape-500: #8c3dff;
+    --color-grape-600: #7a1ff5;
+    --color-grape-700: #6714d1;
+
+    --color-tangerine-50: #fff8ed;
+    --color-tangerine-100: #ffefd3;
+    --color-tangerine-200: #ffdca5;
+    --color-tangerine-300: #ffc06d;
+    --color-tangerine-400: #ff9a32;
+    --color-tangerine-500: #ff7a0a;
+    --color-tangerine-600: #f05e00;
+
+    --color-lime-50: #f4fce8;
+    --color-lime-100: #e6f8cc;
+    --color-lime-200: #cef09e;
+    --color-lime-300: #b0e468;
+    --color-lime-400: #93d43a;
+    --color-lime-500: #74b81c;
+
+    --color-skypop-50: #ecfbff;
+    --color-skypop-100: #d0f4ff;
+    --color-skypop-200: #a6ecff;
+    --color-skypop-300: #63dfff;
+    --color-skypop-400: #1fccf5;
+    --color-skypop-500: #04b0dc;
+
+    --color-cream: #fffaf3;
+    --color-ink: #2b1d33;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        font-family: var(--font-sans);
+        color: var(--color-ink);
+        background-color: var(--color-cream);
+    }
+    h1, h2, h3, h4, h5, .font-display {
+        font-family: var(--font-display);
+    }
+}
+
+@layer components {
+    .btn,
+    .btn-primary,
+    .btn-secondary,
+    .btn-sunny,
+    .btn-outline,
+    .btn-ghost {
+        @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-display text-base font-bold transition-all duration-200 shadow-md hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus-visible:ring-4 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:shadow-md;
+    }
+    .btn-primary {
+        @apply bg-berry-500 text-white hover:bg-berry-600 focus-visible:ring-berry-200;
+    }
+    .btn-secondary {
+        @apply bg-grape-500 text-white hover:bg-grape-600 focus-visible:ring-grape-200;
+    }
+    .btn-sunny {
+        @apply bg-tangerine-400 text-white hover:bg-tangerine-500 focus-visible:ring-tangerine-200;
+    }
+    .btn-outline {
+        @apply bg-white text-berry-600 ring-2 ring-inset ring-berry-200 hover:bg-berry-50;
+    }
+    .btn-ghost {
+        @apply bg-transparent text-ink shadow-none hover:bg-white/60;
+    }
+    .card {
+        @apply rounded-3xl bg-white shadow-[0_10px_40px_-15px_rgba(43,29,51,0.25)] ring-1 ring-black/5;
+    }
+    .chip {
+        @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide;
+    }
+    .form-input, .form-select, .form-textarea {
+        @apply w-full rounded-2xl border-0 bg-white px-4 py-3 text-ink shadow-sm ring-1 ring-inset ring-berry-100 placeholder:text-ink/40 focus:ring-2 focus:ring-inset focus:ring-berry-400;
+    }
+    .form-label {
+        @apply mb-1.5 block text-sm font-bold text-ink/80;
+    }
+    .section {
+        @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+    }
+}
